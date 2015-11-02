@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Vendor_Adminhtml>
+            <version>1.0.0</version>
+        </Vendor_Adminhtml>
+    </modules>
+    <global>
+        <blocks>
+            <vendor_adminhtml>
+                <class>Vendor_Adminhtml_Block</class>
+            </vendor_adminhtml>
+            <adminhtml>
+                <rewrite>
+                    <customer_edit>Vendor_Adminhtml_Block_Customer_Edit</customer_edit>
+                    <customer_grid>Vendor_Adminhtml_Block_Customer_Grid</customer_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Vendor_Adminhtml before="Mage_Adminhtml">Vendor_Adminhtml</Vendor_Adminhtml>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>
