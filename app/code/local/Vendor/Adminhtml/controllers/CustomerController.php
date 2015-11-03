@@ -94,8 +94,13 @@ class Vendor_Adminhtml_CustomerController extends Mage_Adminhtml_CustomerControl
         if ($customer->getId()) {
             try {
                 $customer->load($customer->getId());
-                    $customer->setCustomerStatus('233')
-                    ->save();
+                    if($customer->getStatus() == '2'){
+							$customer->setStatus('1');
+                    }
+                    else{
+                    	$customer->setStatus('2');	
+                    }
+                    $customer->save();
                 //$customer->delete();
                 Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('adminhtml')->__('The customer has been disabled.'));
             }
@@ -116,9 +121,14 @@ class Vendor_Adminhtml_CustomerController extends Mage_Adminhtml_CustomerControl
                 $customer = Mage::getModel('customer/customer');
                 foreach ($customersIds as $customerId) {
                     $customer->reset()
-                        ->load($customerId)
-                        ->setCustomerStatus('233')
-                        ->save();
+                        ->load($customerId);
+                        if($customer->getStatus() == '2'){
+							$customer->setStatus('1');
+                        }
+                        else{
+                        	$customer->setStatus('2');	
+                        }
+                        $customer->save();
                         //->delete();
                 }
                 Mage::getSingleton('adminhtml/session')->addSuccess(

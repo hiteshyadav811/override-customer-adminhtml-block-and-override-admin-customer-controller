@@ -50,7 +50,7 @@ class Vendor_Adminhtml_Block_Customer_Edit extends Mage_Adminhtml_Block_Customer
         parent::__construct();
 
         $this->_updateButton('save', 'label', Mage::helper('customer')->__('Save Customer'));
-        if (Mage::registry('current_customer')->getCustomerStatus()=='233') {
+        if (Mage::registry('current_customer')->getStatus()=='2') {
             $this->_updateButton('delete', 'label', Mage::helper('customer')->__('Enable Customer'));
         }
         else{
